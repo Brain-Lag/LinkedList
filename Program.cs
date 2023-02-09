@@ -100,6 +100,10 @@ static void ArrayAdd(ref int[] arr, int num)
 
 static void ArrayRemove (ref int[] arr, int num)
 {
+    if (arr.Length == 0)
+    {
+        return;
+    }
     if (num < arr[0] || num > arr[arr.Length-1])
     {
         return;
@@ -115,6 +119,8 @@ static void ArrayRemove (ref int[] arr, int num)
                 flag = false;
                 continue;
             }
+            if (i == resultArr.Length)
+                return;
             resultArr[i] = arr[i];
         }
         else
